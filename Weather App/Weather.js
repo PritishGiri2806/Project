@@ -1,3 +1,4 @@
+let weatherImage= document.querySelector('.img')
 const apikey = "de010af042908f29dea72ed5c028211f";
 window.addEventListener("load", () => {
     if (navigator.geolocation) {
@@ -70,9 +71,7 @@ function weatherReport(data) {
         document.getElementById('clouds').innerText = data.weather[0].description;
         console.log(data.weather[0].description)
 
-        let icon1 = data.weather[0].icon;
-        let iconurl = "http://api.openweathermap.org/img/w/" + icon1 + ".png";
-        document.getElementById('img').src = iconurl
+        weatherImage.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
     })
 
 }
